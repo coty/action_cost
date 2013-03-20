@@ -29,6 +29,10 @@ module ActionCost
       require "#{lib_base_dir}/action_cost/extensions/postgresql_adapter"
     end
 
+    initializer "action_cost:instrument_mysql_adapter" do |app|
+      require "#{lib_base_dir}/action_cost/extensions/mysql_adapter"
+    end
+
     initializer "action_cost.add_middleware" do |app|
       app.middleware.use ActionCost::Middleware
     end
